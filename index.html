@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Porównanie Bootstrap vs Tailwind CSS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            prefix: 'tw-',
+        }
+    </script>
+    <style>
+        .container-custom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        .section {
+            margin-bottom: 50px;
+            padding-top: 30px;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .tailwind-section {
+            --tw-bg-opacity: 1;
+            background-color: rgba(243, 244, 246, var(--tw-bg-opacity));
+            padding: 2rem;
+        }
+        .bootstrap-section {
+            background-color: #f8f9fa;
+            padding: 2rem;
+        }
+        footer {
+            padding: 30px 0;
+            background-color: #333;
+            color: white;
+            margin-top: 50px;
+        }
+        .code-container {
+            background-color: #282c34;
+            border-radius: 5px;
+            padding: 15px;
+            margin-top: 20px;
+            overflow-x: auto;
+        }
+        .code-container pre {
+            color: #abb2bf;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-custom">
+        <header class="my-5 text-center">
+            <h1 class="display-4">Porównanie Bootstrap i Tailwind CSS</h1>
+            <p class="lead">Przykłady implementacji tych samych elementów w obu frameworkach</p>
+        </header>
+
+        <!-- Nawigacja -->
+        <section id="navigation" class="section">
+            <h2 class="section-title">Nawigacja</h2>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <h3 class="text-center mb-3">Bootstrap</h3>
+                    <div class="bootstrap-section">
+                        <!-- Bootstrap Navbar -->
+                        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                            <div class="container-fluid">
+                                <a class="navbar-brand" href="#">Bootstrap</a>
+                                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
+                                <div class="collapse navbar-collapse" id="navbarNav">
+                                    <ul class="navbar-nav">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" href="#">Strona główna</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">O nas</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">Usługi</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">Kontakt</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <h3 class="text-center mb-3">Tailwind CSS</h3>
+                    <div class="tailwind-section">
+                        <!-- Tailwind Navbar -->
+                        <nav class="tw-bg-white tw-border-gray-200 tw-px-4 tw-py-2.5 tw-rounded">
+                            <div class="tw-flex tw-flex-wrap tw-justify-between tw-items-center">
+                                <a href="#" class="tw-flex tw-items-center tw-text-xl tw-font-semibold">Tailwind</a>
+                                <button id="navbar-toggle" class="md:tw-hidden tw-p-2 tw-text-gray-500 tw-rounded-lg hover:tw-bg-gray-100 focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-gray-200">
+                                    <svg class="tw-w-6 tw-h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </button>
+                                <div class="tw-hidden tw-w-full md:tw-block md:tw-w-auto" id="mobile-menu">
+                                    <ul class="tw-flex tw-flex-col md:tw-flex-row md:tw-space-x-8 tw-mt-4 md:tw-mt-0 md:tw-text-sm md:tw-font-medium">
+                                        <li>
+                                            <a href="#" class="tw-block tw-py-2 tw-pr-4 tw-pl-3 tw-text-white tw-bg-blue-700 tw-rounded md:tw-bg-transparent md:tw-text-blue-700 md:tw-p-0">Strona główna</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="tw-block tw-py-2 tw-pr-4 tw-pl-3 tw-text-gray-700 tw-border-b tw-border-gray-100 hover:tw-bg-gray-50 md:hover:tw-bg-transparent md:tw-border-0 md:hover:tw-text-blue-700 md:tw-p-0">O nas</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="tw-block tw-py-2 tw-pr-4 tw-pl-3 tw-text-gray-700 tw-border-b tw-border-gray-100 hover:tw-bg-gray-50 md:hover:tw-bg-transparent md:tw-border-0 md:hover:tw-text-blue-700 md:tw-p-0">Usługi</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="tw-block tw-py-2 tw-pr-4 tw-pl-3 tw-text-gray-700 hover:tw-bg-gray-50 md:hover:tw-bg-transparent md:tw-border-0 md:hover:tw-text-blue-700 md:tw-p-0">Kontakt</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Karty -->
+        <section id="cards" class="section">
+            <h2 class="section-title">Karty</h2>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <h3 class="text-center mb-3">Bootstrap</h3>
+                    <div class="bootstrap-section">
+                        <!-- Bootstrap Card -->
+                        <div class="card">
+                            <img src="https://placehold.co/300x150" class="card-img-top" alt="Placeholder">
+                            <div class="card-body">
+                                <h5 class="card-title">Karta w Bootstrap</h5>
+                                <p class="card-text">Bootstrap oferuje gotowe komponenty, takie jak karty, które można łatwo zaimplementować.</p>
+                                <a href="#" class="btn btn-primary">Przycisk główny</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <h3 class="text-center mb-3">Tailwind CSS</h3>
+                    <div class="tailwind-section">
+                        <!-- Tailwind Card -->
+                        <div class="tw-max-w-sm tw-rounded tw-overflow-hidden tw-shadow-lg tw-bg-white">
+                            <img class="tw-w-full" src="https://placehold.co/300x150" alt="Placeholder">
+                            <div class="tw-px-6 tw-py-4">
+                                <div class="tw-font-bold tw-text-xl tw-mb-2">Karta w Tailwind</div>
+                                <p class="tw-text-gray-700 tw-text-base">
+                                    W Tailwind budujemy komponenty przy użyciu klas utility, łącząc je według potrzeb.
+                                </p>
+                            </div>
+                            <div class="tw-px-6 tw-pt-4 tw-pb-6">
+                                <a href="#" class="tw-bg-blue-500 hover:tw-bg-blue-700 tw-text-white tw-font-bold tw-py-2 tw-px-4 tw-rounded">
+                                    Przycisk główny
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Formularze -->
+        <section id="forms" class="section">
+            <h2 class="section-title">Formularze</h2>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <h3 class="text-center mb-3">Bootstrap</h3>
+                    <div class="bootstrap-section">
+                        <!-- Bootstrap Form -->
+                        <form>
+                            <div class="mb-3">
+                                <label for="bootstrap-email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="bootstrap-email">
+                            </div>
+                            <div class="mb-3">
+                                <label for="bootstrap-password" class="form-label">Hasło</label>
+                                <input type="password" class="form-control" id="bootstrap-password">
+                            </div>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="bootstrap-check">
+                                <label class="form-check-label" for="bootstrap-check">Zapamiętaj mnie</label>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Zaloguj</button>
+                        </form>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <h3 class="text-center mb-3">Tailwind CSS</h3>
+                    <div class="tailwind-section">
+                        <!-- Tailwind Form -->
+                        <form class="tw-bg-white tw-shadow-md tw-rounded tw-px-8 tw-pt-6 tw-pb-8 tw-mb-4">
+                            <div class="tw-mb-4">
+                                <label class="tw-block tw-text-gray-700 tw-text-sm tw-font-bold tw-mb-2" for="tailwind-email">
+                                    Email
+                                </label>
+                                <input class="tw-shadow tw-appearance-none tw-border tw-rounded tw-w-full tw-py-2 tw-px-3 tw-text-gray-700 tw-leading-tight focus:tw-outline-none focus:tw-shadow-outline" id="tailwind-email" type="email" placeholder="Wprowadź email">
+                            </div>
+                            <div class="tw-mb-6">
+                                <label class="tw-block tw-text-gray-700 tw-text-sm tw-font-bold tw-mb-2" for="tailwind-password">
+                                    Hasło
+                                </label>
+                                <input class="tw-shadow tw-appearance-none tw-border tw-rounded tw-w-full tw-py-2 tw-px-3 tw-text-gray-700 tw-mb-3 tw-leading-tight focus:tw-outline-none focus:tw-shadow-outline" id="tailwind-password" type="password" placeholder="Wprowadź hasło">
+                            </div>
+                            <div class="tw-mb-6">
+                                <label class="tw-flex tw-items-center">
+                                    <input type="checkbox" class="tw-form-checkbox tw-h-5 tw-w-5 tw-text-blue-600">
+                                    <span class="tw-ml-2 tw-text-gray-700">Zapamiętaj mnie</span>
+                                </label>
+                            </div>
+                            <div class="tw-flex tw-items-center tw-justify-between">
+                                <button class="tw-bg-blue-500 hover:tw-bg-blue-700 tw-text-white tw-font-bold tw-py-2 tw-px-4 tw-rounded focus:tw-outline-none focus:tw-shadow-outline" type="submit">
+                                    Zaloguj
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Alerty -->
+        <section id="alerts" class="section">
+            <h2 class="section-title">Alerty</h2>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <h3 class="text-center mb-3">Bootstrap</h3>
+                    <div class="bootstrap-section">
+                        <!-- Bootstrap Alerts -->
+                        <div class="alert alert-success" role="alert">
+                            To jest alert sukcesu w Bootstrap!
+                        </div>
+                        <div class="alert alert-danger" role="alert">
+                            To jest alert błędu w Bootstrap!
+                        </div>
+                        <div class="alert alert-warning" role="alert">
+                            To jest alert ostrzegawczy w Bootstrap!
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <h3 class="text-center mb-3">Tailwind CSS</h3>
+                    <div class="tailwind-section">
+                        <!-- Tailwind Alerts -->
+                        <div class="tw-bg-green-100 tw-border-l-4 tw-border-green-500 tw-text-green-700 tw-p-4 tw-mb-4" role="alert">
+                            <p>To jest alert sukcesu w Tailwind CSS!</p>
+                        </div>
+                        <div class="tw-bg-red-100 tw-border-l-4 tw-border-red-500 tw-text-red-700 tw-p-4 tw-mb-4" role="alert">
+                            <p>To jest alert błędu w Tailwind CSS!</p>
+                        </div>
+                        <div class="tw-bg-yellow-100 tw-border-l-4 tw-border-yellow-500 tw-text-yellow-700 tw-p-4" role="alert">
+                            <p>To jest alert ostrzegawczy w Tailwind CSS!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Przyciski -->
+        <section id="buttons" class="section">
+            <h2 class="section-title">Przyciski</h2>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <h3 class="text-center mb-3">Bootstrap</h3>
+                    <div class="bootstrap-section">
+                        <!-- Bootstrap Buttons -->
+                        <button type="button" class="btn btn-primary me-2 mb-2">Przycisk primary</button>
+                        <button type="button" class="btn btn-secondary me-2 mb-2">Przycisk secondary</button>
+                        <button type="button" class="btn btn-success me-2 mb-2">Przycisk success</button>
+                        <button type="button" class="btn btn-danger me-2 mb-2">Przycisk danger</button>
+                        <button type="button" class="btn btn-warning me-2 mb-2">Przycisk warning</button>
+                        <button type="button" class="btn btn-info me-2 mb-2">Przycisk info</button>
+                        <button type="button" class="btn btn-light me-2 mb-2">Przycisk light</button>
+                        <button type="button" class="btn btn-dark me-2 mb-2">Przycisk dark</button>
+                        <button type="button" class="btn btn-outline-primary me-2 mb-2">Outline primary</button>
+                        <button type="button" class="btn btn-lg btn-primary me-2 mb-2">Duży przycisk</button>
+                        <button type="button" class="btn btn-sm btn-primary me-2 mb-2">Mały przycisk</button>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <h3 class="text-center mb-3">Tailwind CSS</h3>
+                    <div class="tailwind-section">
+                        <!-- Tailwind Buttons -->
+                        <button class="tw-bg-blue-500 hover:tw-bg-blue-700 tw-text-white tw-font-bold tw-py-2 tw-px-4 tw-rounded tw-m-1">
+                            Przycisk primary
+                        </button>
+                        <button class="tw-bg-gray-500 hover:tw-bg-gray-700 tw-text-white tw-font-bold tw-py-2 tw-px-4 tw-rounded tw-m-1">
+                            Przycisk secondary
+                        </button>
+                        <button class="tw-bg-green-500 hover:tw-bg-green-700 tw-text-white tw-font-bold tw-py-2 tw-px-4 tw-rounded tw-m-1">
+                            Przycisk success
+                        </button>
+                        <button class="tw-bg-red-500 hover:tw-bg-red-700 tw-text-white tw-font-bold tw-py-2 tw-px-4 tw-rounded tw-m-1">
+                            Przycisk danger
+                        </button>
+                        <button class="tw-bg-yellow-500 hover:tw-bg-yellow-700 tw-text-white tw-font-bold tw-py-2 tw-px-4 tw-rounded tw-m-1">
+                            Przycisk warning
+                        </button>
+                        <button class="tw-bg-indigo-500 hover:tw-bg-indigo-700 tw-text-white tw-font-bold tw-py-2 tw-px-4 tw-rounded tw-m-1">
+                            Przycisk info
+                        </button>
+                        <button class="tw-bg-gray-100 hover:tw-bg-gray-200 tw-text-gray-800 tw-font-bold tw-py-2 tw-px-4 tw-rounded tw-m-1">
+                            Przycisk light
+                        </button>
+                        <button class="tw-bg-gray-800 hover:tw-bg-gray-900 tw-text-white tw-font-bold tw-py-2 tw-px-4 tw-rounded tw-m-1">
+                            Przycisk dark
+                        </button>
+                        <button class="tw-bg-transparent hover:tw-bg-blue-500 tw-text-blue-700 tw-font-semibold hover:tw-text-white tw-py-2 tw-px-4 tw-border tw-border-blue-500 hover:tw-border-transparent tw-rounded tw-m-1">
+                            Outline primary
+                        </button>
+                        <button class="tw-bg-blue-500 hover:tw-bg-blue-700 tw-text-white tw-font-bold tw-py-3 tw-px-6 tw-rounded tw-m-1">
+                            Duży przycisk
+                        </button>
+                        <button class="tw-bg-blue-500 hover:tw-bg-blue-700 tw-text-white tw-font-bold tw-py-1 tw-px-3 tw-rounded tw-text-sm tw-m-1">
+                            Mały przycisk
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Układ siatki -->
+        <section id="grid" class="section">
+            <h2 class="section-title">System siatki</h2>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <h3 class="text-center mb-3">Bootstrap</h3>
+                    <div class="bootstrap-section">
+                        <!-- Bootstrap Grid -->
+                        <div class="row mb-2">
+                            <div class="col-md-12"><div class="bg-primary text-white p-2">col-12</div></div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col-md-6"><div class="bg-primary text-white p-2">col-6</div></div>
+                            <div class="col-md-6"><div class="bg-primary text-white p-2">col-6</div></div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col-md-4"><div class="bg-primary text-white p-2">col-4</div></div>
+                            <div class="col-md-4"><div class="bg-primary text-white p-2">col-4</div></div>
+                            <div class="col-md-4"><div class="bg-primary text-white p-2">col-4</div></div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col-md-3"><div class="bg-primary text-white p-2">col-3</div></div>
+                            <div class="col-md-3"><div class="bg-primary text-white p-2">col-3</div></div>
+                            <div class="col-md-3"><div class="bg-primary text-white p-2">col-3</div></div>
+                            <div class="col-md-3"><div class="bg-primary text-white p-2">col-3</div></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <h3 class="text-center mb-3">Tailwind CSS</h3>
+                    <div class="tailwind-section">
+                        <!-- Tailwind Grid -->
+                        <div class="tw-grid tw-grid-cols-1 tw-gap-2 tw-mb-2">
+                            <div class="tw-bg-blue-500 tw-text-white tw-p-2">span 1</div>
+                        </div>
+                        <div class="tw-grid tw-grid-cols-2 tw-gap-2 tw-mb-2">
+                            <div class="tw-bg-blue-500 tw-text-white tw-p-2">span 1</div>
+                            <div class="tw-bg-blue-500 tw-text-white tw-p-2">span 1</div>
+                        </div>
+                        <div class="tw-grid tw-grid-cols-3 tw-gap-2 tw-mb-2">
+                            <div class="tw-bg-blue-500 tw-text-white tw-p-2">span 1</div>
+                            <div class="tw-bg-blue-500 tw-text-white tw-p-2">span 1</div>
+                            <div class="tw-bg-blue-500 tw-text-white tw-p-2">span 1</div>
+                        </div>
+                        <div class="tw-grid tw-grid-cols-4 tw-gap-2 tw-mb-2">
+                            <div class="tw-bg-blue-500 tw-text-white tw-p-2">span 1</div>
+                            <div class="tw-bg-blue-500 tw-text-white tw-p-2">span 1</div>
+                            <div class="tw-bg-blue-500 tw-text-white tw-p-2">span 1</div>
+                            <div class="tw-bg-blue-500 tw-text-white tw-p-2">span 1</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Kod źródłowy -->
+        <section id="source-code" class="section">
+            <h2 class="section-title">Przykłady kodu</h2>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <h3 class="text-center mb-3">Bootstrap - przycisk</h3>
+                    <div class="code-container">
+<pre><code>&lt;button type="button" class="btn btn-primary"&gt;
+    Przycisk primary
+&lt;/button&gt;
+
+&lt;button type="button" class="btn btn-outline-primary"&gt;
+    Outline primary
+&lt;/button&gt;
+
+&lt;button type="button" class="btn btn-lg btn-primary"&gt;
+    Duży przycisk
+&lt;/button&gt;</code></pre>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <h3 class="text-center mb-3">Tailwind CSS - przycisk</h3>
+                    <div class="code-container">
+<pre><code>&lt;button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"&gt;
+    Przycisk primary
+&lt;/button&gt;
+
+&lt;button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"&gt;
+    Outline primary
+&lt;/button&gt;
+
+&lt;button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded"&gt;
+    Duży przycisk
+&lt;/button&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Porównanie cech -->
+        <section id="features-comparison" class="section">
+            <h2 class="section-title">Porównanie cech</h2>
+            
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Cecha</th>
+                            <th>Bootstrap</th>
+                            <th>Tailwind CSS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Podejście</td>
+                            <td>Gotowe komponenty</td>
+                            <td>Utility-first</td>
+                        </tr>
+                        <tr>
+                            <td>Krzywa nauki</td>
+                            <td>Niska dla początkujących</td>
+                            <td>Bardziej stroma</td>
+                        </tr>
+                        <tr>
+                            <td>Customizacja</td>
+                            <td>Ograniczona bez nadpisywania</td>
+                            <td>Wysoka z konfiguracją</td>
+                        </tr>
+                        <tr>
+                            <td>Rozmiar pliku</td>
+                            <td>Większy domyślnie</td>
+                            <td>Mniejszy po optymalizacji</td>
+                        </tr>
+                        <tr>
+                            <td>Spójność designu</td>
+                            <td>Wymuszony "wygląd Bootstrapa"</td>
+                            <td>Własny system designu</td>
+                        </tr>
+                        <tr>
+                            <td>Produktywność</td>
+                            <td>Szybki start</td>
+                            <td>Szybkość po nauce</td>
+                        </tr>
+                        <tr>
+                            <td>Wsparcie</td>
+                            <td>Rozbudowana dokumentacja</td>
+                            <td>Rosnąca społeczność</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Ćwiczenie praktyczne -->
+        <section id="practice" class="section">
+            <h2 class="section-title">Ćwiczenie praktyczne</h2>
+            
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h3 class="m-0">Proste ćwiczenie dla czytelnika</h3>
+                </div>
+                <div class="card-body">
+                    <p>Stwórz prostą stronę portfolio z wykorzystaniem wybranego frameworka (Bootstrap lub Tailwind CSS), zawierającą:</p>
+                    <ol>
+                        <li>Nawigację z menu</li>
+                        <li>Sekcję powitania z twoim zdjęciem</li>
+                        <li>Trzy karty przedstawiające twoje projekty</li>
+                        <li>Formularz kontaktowy</li>
+                        <li>Stopkę z linkami do mediów społecznościowych</li>
+                    </ol>
+                    <p>Po zrobieniu wersji w jednym frameworku, spróbuj odtworzyć ten sam design w drugim frameworku i porównaj doświadczenia.</p>
+                    <a href="./szablon.html" download class="btn btn-primary">Pobierz szablon startowy</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Podsumowanie różnic -->
+        <section id="summary" class="section">
+            <h2 class="section-title">Kiedy używać którego frameworka?</h2>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-header bg-primary text-white">
+                            <h3 class="m-0">Wybierz Bootstrap, gdy:</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Potrzebujesz szybko stworzyć prototyp lub MVP</li>
+                                <li class="list-group-item">Nie masz zaawansowanej wiedzy z CSS</li>
+                                <li class="list-group-item">Standardowe komponenty spełniają Twoje potrzeby</li>
+                                <li class="list-group-item">Konsystencja jest ważniejsza niż unikalność</li>
+                                <li class="list-group-item">Nie chcesz pisać dużo własnego CSS</li>
+                                <li class="list-group-item">Tworzysz panel administracyjny lub dashboard</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-header bg-indigo-500 text-white" style="background-color: #6366f1;">
+                            <h3 class="m-0">Wybierz Tailwind CSS, gdy:</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Potrzebujesz unikalnego designu</li>
+                                <li class="list-group-item">Masz wiedzę z CSS i chcesz mieć pełną kontrolę</li>
+                                <li class="list-group-item">Zależy Ci na optymalizacji i małym rozmiarze pliku</li>
+                                <li class="list-group-item">Tworzysz projekt z niestandardowym designem</li>
+                                <li class="list-group-item">Chcesz uniknąć pisania własnego CSS</li>
+                                <li class="list-group-item">Tworzysz nowoczesną aplikację webową</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>                            
+        <footer class="text-center">
+            <div class="container-custom">
+                <p class="mb-2">© 2025 Porównanie Bootstrap vs Tailwind CSS</p>
+                <p class="mb-0">Stworzone przez Antoni Piwowarski</p>
+            </div>
+        </footer>
+    </div>
+                                
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('navbar-toggle').addEventListener('click', function() {
+        const navbar = document.getElementById('mobile-menu');
+        navbar.classList.toggle('tw-hidden');
+    });
+    </script>
+</body>
+</html>
